@@ -22,11 +22,4 @@ class window.Hand extends Backbone.Collection
     if hasAce then [score, score + 10] else [score]
 
   busted: ->
-    currentScore = @scores()
-    currentScore = if (currentScore[1] isnt undefined)
-      if  currentScore[1] > 21 
-        currentScore[0] 
-      else 
-        currentScore[1]
-    else currentScore[1]
-    currentScore > 21  
+    Math.min.apply(null, @scores()) > 21 
