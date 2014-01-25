@@ -44,5 +44,7 @@ describe 'hand', ->
       expect(hand.busted()).toEqual(false)
       hand.add(king)
       expect(hand.busted()).toEqual(true)
+    it "should have a stand method", ->
+      expect(typeof Hand.prototype.stand).toBe('function')
 
 
