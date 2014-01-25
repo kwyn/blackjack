@@ -28,3 +28,9 @@ describe 'App', ->
       app = new App()
       app.get('playerHand').hit() for num in [1..100]
       expect(playerLosesSpy).toHaveBeenCalled()
+    it "should persist the wins and losses when the app in reinitialized", ->
+      expect(app.get('wins')).toEqual(0)
+      app.set 'wins', 16
+      expect(app.get('wins')).toEqual(16)
+      app.initialize()
+      expect(app.get('wins')).toEqual(16)
